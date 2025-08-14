@@ -1,12 +1,111 @@
-# React + Vite
+🎯 Objective
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production-ready single-page application (SPA) built using React + TypeScript that fetches users from a public API, supports search with URL sync, modal-based user details, theme switching, global state management, and responsive design.
 
-Currently, two official plugins are available:
+🚀 Features
+✅ Core Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Data Fetching: Using React Query for caching, refetching on window focus, and pagination.
 
-## Expanding the ESLint configuration
+Debounced Search: 300ms delay with URL sync (maintains search state on refresh).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+User Detail Modal: Opens on card click, deep-linkable via /user/:id, closable on ESC or background click.
+
+Theme Toggle: Light/Dark mode with persistence using localStorage.
+
+Reusable Components:
+
+UserCard
+
+SearchBar
+
+UserModal
+
+Pagination
+
+ThemeToggle
+
+SkeletonLoader
+
+Global State Management: Redux Toolkit for search query, current page, and theme.
+
+Error Handling: Custom ErrorBoundary + Suspense for lazy loading.
+
+Performance Optimization: React.memo, useCallback, useMemo.
+
+Responsive & Accessible: Mobile-first UI, ARIA roles, focus trap, and keyboard navigation.
+
+📂 Project Structure
+src/
+ ├── components/      # Reusable components
+ ├── hooks/           # Custom hooks
+ ├── pages/           # Page-level components
+ ├── store/           # Redux store & slices
+ ├── types/           # TypeScript type definitions
+ ├── utils/           # Utility functions
+ ├── App.tsx          # Main App component
+ └── main.tsx         # Entry point
+
+🔗 API
+
+Data is fetched from:
+
+https://reqres.in/api/users
+
+
+Supports pagination:
+GET /api/users?page=1
+
+🛠️ Tech Stack
+
+React 18 + TypeScript
+
+React Router v6
+
+React Query
+
+Redux Toolkit
+
+Tailwind CSS (for styling)
+
+Jest + React Testing Library (unit tests)
+
+⚡ Installation & Setup
+# Clone repo
+git clone https://github.com/your-username/react-users-spa.git
+
+# Navigate
+cd react-users-spa
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Run tests
+npm run test
+
+# Build for production
+npm run build
+
+🧪 Testing
+
+Includes unit tests for:
+
+Modal open/close
+
+Search filtering
+
+Theme toggle
+
+Run tests:
+
+npm run test
+
+🌐 Deployment
+
+Build: npm run build
+
+Deploy on Vercel or Netlify
+Link: https://rk-project2-assignment.netlify.app/users?page=1
